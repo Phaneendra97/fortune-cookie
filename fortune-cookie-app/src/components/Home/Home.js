@@ -23,7 +23,7 @@ function Home() {
       marginTop="20px"
     >
       <h2>Fortune Cookie</h2>
-      <Flexbox></Flexbox>
+      <Flexbox> {userDetails.country}</Flexbox>
     </Flexbox>
   );
 }
@@ -35,25 +35,32 @@ const getGeoInfo = () => {
     .get("https://ipapi.co/json/")
     .then((response) => {
       let data = response.data;
-      const now = new Date();
-      //now.timezone = data.timezone;
       let options = {
-          timeZone: data.timezone,
-          year: "numeric",
-          month: "numeric",
-          day: "numeric",
-          hour: "numeric",
-          minute: "numeric",
-          second: "numeric",
-        },
-        formatter = new Intl.DateTimeFormat([], options);
-      console.log(formatter.format(new Date()));
-      console.log("@here@@", new Date(formatter.format(new Date())));
+        timeZone: data.timezone,
+        year: "numeric",
+        month: "numeric",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+        second: "numeric",
+      };
+      let greetings = "";
+      const formatter = new Intl.DateTimeFormat([], options);
+      const dateObject = new Date(formatter.format(new Date()));
+      if (dateObject.getHours() < 12) {
+        greetings = "Good Morning!";
+      } else if (dateObject.getHours() > 12 && dateObject.getHours() < 16) {
+        greetings = "Good Afternoon!";
+      } else if (dateObject.getHours() > 16) {
+        greetings = "Good Evening!";
+      }
       userDetails = {
         country: data.country_name,
         timezone: data.timezone,
-        localTime: now,
+        localTime: dateObject,
+        greetings: greetings,
       };
+      console.log("@here", userDetails, greetings);
     })
     .catch((error) => {
       console.log(error);
