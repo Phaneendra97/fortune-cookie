@@ -3,6 +3,14 @@ import Flexbox from "flexbox-react";
 import axios from "axios";
 
 export class Home extends Component {
+  state = {
+    userDetails: {
+      country: "",
+      timezone: "",
+      localTime: "",
+      localDate: "",
+    },
+  };
   render() {
     return (
       <Flexbox
@@ -21,13 +29,6 @@ export class Home extends Component {
     );
   }
 }
-
-// var userDetails = {
-//   country: "",
-//   timezone: "",
-//   localTime: "",
-//   localDate: "",
-// };
 
 // function Home() {
 //   useEffect(() => {
