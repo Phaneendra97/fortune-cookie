@@ -1,6 +1,8 @@
-import React, { Component, useEffect } from "react";
+import React, { Component } from "react";
 import Flexbox from "flexbox-react";
 import axios from "axios";
+import ReactDOM from "react-dom";
+import TweenOne from "rc-tween-one";
 
 export class Home extends Component {
   state = {
@@ -16,17 +18,17 @@ export class Home extends Component {
     return (
       <Flexbox
         flexDirection="column"
-        alignItems="start"
-        justifyContent="start"
+        alignItems="flex-start"
+        justifyContent="flex-start"
         minHeight="100vh"
         marginTop="20px"
         marginLeft="20px"
       >
         <Flexbox>
-          <ul class="nav">
-            <li class="nav-item">
+          <ul className="nav">
+            <li className="nav-item">
               <a
-                class="nav-link active"
+                className="nav-link active"
                 style={{ fontSize: "25px" }}
                 aria-current="page"
               >
@@ -42,7 +44,17 @@ export class Home extends Component {
           height="100%"
           width="100%"
         >
-          <h3>{this.state.greetings}</h3>{" "}
+          <TweenOne
+            style={{ display: "inline-block" }}
+            animation={{ y: -100, repeat: 0, yoyo: false }}
+            className="sun"
+          ></TweenOne>
+          <TweenOne
+            style={{ display: "inline-block" }}
+            animation={{ x: -100, repeat: -1, yoyo: true, duration: 2000 }}
+            className="cloud"
+          ></TweenOne>
+          <h3>{this.state.greetings}</h3>
         </Flexbox>
       </Flexbox>
     );
@@ -71,9 +83,9 @@ export class Home extends Component {
         const dateObject = new Date(formatter.format(new Date()));
         if (dateObject.getHours() < 12) {
           greetings = "Good Morning!";
-        } else if (dateObject.getHours() > 12 && dateObject.getHours() < 16) {
+        } else if (dateObject.getHours() >= 12 && dateObject.getHours() < 16) {
           greetings = "Good Afternoon!";
-        } else if (dateObject.getHours() > 16) {
+        } else if (dateObject.getHours() >= 16) {
           greetings = "Good Evening!";
         }
         let userDetails = {

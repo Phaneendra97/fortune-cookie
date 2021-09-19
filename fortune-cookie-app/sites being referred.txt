@@ -1,0 +1,11 @@
+https://lauryndbrown.github.io/2017/06/08/creating-clouds-in-css.html
+
+https://fonts.google.com/icons
+
+https://www.w3schools.com/css/tryit.asp?filename=trycss_icons_google
+
+https://stackblitz.com/edit/rc-tween-one?file=index.js
+
+https://stackblitz.com/edit/react-tween-animation?file=index.js
+
+https://motion.ant.design/components/tween-one#components-tween-one-demo-position
