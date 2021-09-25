@@ -44,16 +44,7 @@ export class Home extends Component {
           height="100%"
           width="100%"
         >
-          <TweenOne
-            style={{ display: "inline-block" }}
-            animation={{ y: -100, repeat: 0, yoyo: false }}
-            className="sun"
-          ></TweenOne>
-          <TweenOne
-            style={{ display: "inline-block" }}
-            animation={{ x: -100, repeat: -1, yoyo: true, duration: 2000 }}
-            className="cloud"
-          ></TweenOne>
+          {<TimebasedAnimation timeHint={this.state.greetings} />}
           <h3>{this.state.greetings}</h3>
         </Flexbox>
       </Flexbox>
@@ -100,6 +91,28 @@ export class Home extends Component {
         console.log(error);
       });
   };
+}
+
+function TimebasedAnimation(props) {
+  console.log(props);
+  if (props.timeHint == "Good Morning!") {
+    return (
+      <div>
+        <TweenOne
+          style={{ display: "inline-block" }}
+          animation={{ y: -100, repeat: 0, yoyo: false }}
+          className="sun"
+        ></TweenOne>
+        <TweenOne
+          style={{ display: "inline-block" }}
+          animation={{ x: -100, repeat: -1, yoyo: true, duration: 2000 }}
+          className="cloud"
+        ></TweenOne>
+      </div>
+    );
+  } else {
+    return <div></div>;
+  }
 }
 
 export default Home;
