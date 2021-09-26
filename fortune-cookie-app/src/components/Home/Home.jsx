@@ -98,31 +98,30 @@ function TimebasedAnimation(props) {
   if (props.timeHint == "Good Morning!") {
     return (
       <div>
-        <TweenOne
-          style={{ display: "inline-block" }}
-          animation={{ y: -100, repeat: 0, yoyo: false }}
-          className="sun"
-        ></TweenOne>
-        <TweenOne
-          style={{ display: "inline-block" }}
-          animation={{ x: -100, repeat: -1, yoyo: true, duration: 2000 }}
-          className="cloud"
-        ></TweenOne>
+        <div className="day">
+          <TweenOne
+            style={{ display: "inline-block" }}
+            animation={{ y: -100, repeat: 0, yoyo: false }}
+            className="sun"
+          ></TweenOne>
+          <TweenOne
+            style={{ display: "inline-block" }}
+            animation={{ x: -100, repeat: -1, yoyo: true, duration: 2000 }}
+            className="cloud"
+          ></TweenOne>
+        </div>
       </div>
     );
   } else {
     return (
-      <div>
-        <TweenOne
-          style={{ display: "inline-block" }}
-          animation={{ y: -100, repeat: 0, yoyo: false }}
-          className="sun"
-        ></TweenOne>
-        <TweenOne
-          style={{ display: "inline-block" }}
-          animation={{ x: -100, repeat: -1, yoyo: true, duration: 2000 }}
-          className="cloud"
-        ></TweenOne>
+      <div className="night">
+        <div>
+          <TweenOne
+            style={{ display: "inline-block" }}
+            animation={{ y: -100, repeat: 0, yoyo: false }}
+            className="moon"
+          ></TweenOne>
+        </div>
       </div>
     );
   }

@@ -8,4 +8,6 @@ https://stackblitz.com/edit/rc-tween-one?file=index.js
 
 https://stackblitz.com/edit/react-tween-animation?file=index.js
 
+https://codemyui.com/pure-css-ampm-toggle-switch/
+
 https://motion.ant.design/components/tween-one#components-tween-one-demo-position
