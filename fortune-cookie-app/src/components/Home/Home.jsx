@@ -111,7 +111,20 @@ function TimebasedAnimation(props) {
       </div>
     );
   } else {
-    return <div></div>;
+    return (
+      <div>
+        <TweenOne
+          style={{ display: "inline-block" }}
+          animation={{ y: -100, repeat: 0, yoyo: false }}
+          className="sun"
+        ></TweenOne>
+        <TweenOne
+          style={{ display: "inline-block" }}
+          animation={{ x: -100, repeat: -1, yoyo: true, duration: 2000 }}
+          className="cloud"
+        ></TweenOne>
+      </div>
+    );
   }
 }
 
