@@ -115,6 +115,14 @@ function TimebasedAnimation(props) {
   } else {
     return (
       <div className="night">
+        <div className="star-1 animate-flicker-2"></div>
+        <div className="star-2 animate-flicker"></div>
+        <div className="star-3 animate-flicker-2"></div>
+        <div className="star-4 animate-flicker-2"></div>
+        <div className="star-5 animate-flicker"></div>
+        <div className="star-6 animate-flicker-2"></div>
+        <div className="star-7 animate-flicker"></div>
+        <div className="star-8 animate-flicker-2"></div>
         <div>
           <TweenOne
             style={{ display: "inline-block" }}

@@ -52,9 +52,9 @@
 
 .moon {
   position: relative;
-  top: 120px;
+  top: 110px;
   bottom: 0;
-  left: 30px;
+  left: 10px;
   right: 0;
   margin: auto;
   width: 100px;
@@ -104,4 +104,166 @@
   border-radius: 20px;
   width: 250px;
   height: 150px;
+}
+
+.star-1 {
+  position: relative;
+  top: 75px;
+  bottom: 0;
+  left: -80px;
+  right: 0;
+  margin: auto;
+  width: 3px;
+  height: 3px;
+  background-color: #ffffff;
+  border-radius: 3px;
+}
+
+.star-2 {
+  position: relative;
+  top: 50px;
+  bottom: 0;
+  left: 79px;
+  right: 0;
+  margin: auto;
+  width: 3px;
+  height: 3px;
+  background-color: #ffffff;
+  border-radius: 3px;
+}
+
+.star-3 {
+  position: relative;
+  top: 120px;
+  bottom: 0;
+  left: 90px;
+  right: 0;
+  margin: auto;
+  width: 3px;
+  height: 3px;
+  background-color: #ffffff;
+  border-radius: 3px;
+}
+
+.star-4 {
+  position: relative;
+  top: 110px;
+  bottom: 0;
+  left: -98px;
+  right: 0;
+  margin: auto;
+  width: 2px;
+  height: 2px;
+  background-color: #ffffff;
+  border-radius: 2px;
+}
+
+.star-5 {
+  position: relative;
+  top: 120px;
+  bottom: 0;
+  left: -58px;
+  right: 0;
+  margin: auto;
+  width: 5px;
+  height: 5px;
+  background-color: #ffffff;
+  border-radius: 5px;
+}
+
+.star-6 {
+  position: relative;
+  top: 10px;
+  bottom: 0;
+  left: 45px;
+  right: 0;
+  margin: auto;
+  width: 3.5px;
+  height: 3.5px;
+  background-color: #ffffff;
+  border-radius: 3.5px;
+}
+
+.star-7 {
+  position: relative;
+  top: 5px;
+  bottom: 0;
+  left: -80px;
+  right: 0;
+  margin: auto;
+  width: 3px;
+  height: 3px;
+  background-color: #ffffff;
+  border-radius: 3px;
+}
+
+.star-8 {
+  position: relative;
+  top: 25px;
+  bottom: 0;
+  left: -58px;
+  right: 0;
+  margin: auto;
+  width: 3px;
+  height: 3px;
+  background-color: #ffffff;
+  border-radius: 3px;
+}
+
+@keyframes flickerAnimation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes flickerAnimation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes flickerAnimation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes flickerAnimation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.animate-flicker {
+  -webkit-animation: flickerAnimation 2s infinite;
+  -moz-animation: flickerAnimation 2s infinite;
+  -o-animation: flickerAnimation 2s infinite;
+  animation: flickerAnimation 2s infinite;
+}
+
+.animate-flicker-2 {
+  -webkit-animation: flickerAnimation 2s reverse infinite;
+  -moz-animation: flickerAnimation 2s reverse infinite;
+  -o-animation: flickerAnimation 2s reverse infinite;
+  animation: flickerAnimation 2s reverse infinite;
 }
