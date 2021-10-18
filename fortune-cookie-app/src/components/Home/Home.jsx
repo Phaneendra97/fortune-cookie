@@ -12,24 +12,28 @@ export class Home extends Component {
       localTime: "",
     },
     greetings: "",
+    hourOfTheDay: 0,
   };
 
   render() {
     return (
       <Flexbox
+        className={this.decideTheme(this.state.greetings)}
         flexDirection="column"
         alignItems="flex-start"
         justifyContent="flex-start"
         minHeight="100vh"
-        marginTop="20px"
-        marginLeft="20px"
       >
         <Flexbox>
           <ul className="nav">
             <li className="nav-item">
               <a
                 className="nav-link active"
-                style={{ fontSize: "25px" }}
+                style={{
+                  fontSize: "25px",
+                  cursor: "pointer",
+                  color: "#F0F2EF",
+                }}
                 aria-current="page"
               >
                 Fortune Cookie
@@ -44,8 +48,16 @@ export class Home extends Component {
           height="100%"
           width="100%"
         >
-          {<TimebasedAnimation timeHint={this.state.greetings} />}
-          <h3>{this.state.greetings}</h3>
+          {
+            <TimebasedAnimation
+              timeHint={this.state.greetings}
+              hourOfTheDay={this.state.hourOfTheDay}
+            />
+          }
+          <h3 style={{ color: "#F0F2EF" }}>{this.state.greetings}</h3>
+        </Flexbox>
+        <Flexbox>
+          <h3></h3>
         </Flexbox>
       </Flexbox>
     );
@@ -72,7 +84,7 @@ export class Home extends Component {
         let greetings = "";
         const formatter = new Intl.DateTimeFormat([], options);
         const dateObject = new Date(formatter.format(new Date()));
-        if (dateObject.getHours() < 12) {
+        if (dateObject.getHours() < 23) {
           greetings = "Good Morning!";
         } else if (dateObject.getHours() >= 12 && dateObject.getHours() < 16) {
           greetings = "Good Afternoon!";
@@ -84,18 +96,29 @@ export class Home extends Component {
           timezone: data.timezone,
           localTime: dateObject,
         };
-        this.setState({ userDetails: userDetails, greetings: greetings });
-        console.log("@here", userDetails, greetings);
+        this.setState({
+          userDetails: userDetails,
+          greetings: greetings,
+          hourOfTheDay: dateObject.getHours(),
+        });
+        console.log("@here", userDetails, greetings, dateObject.getHours());
       })
       .catch((error) => {
         console.log(error);
       });
   };
+  decideTheme = (greetings) => {
+    if (greetings === "Good Morning!" || greetings === "Good Afternoon!") {
+      return "Box-day";
+    } else {
+      return "Box-night";
+    }
+  };
 }
 
 function TimebasedAnimation(props) {
   console.log(props);
-  if (props.timeHint == "Good Morning!") {
+  if (props.timeHint == "Good Morning!" && props.hourOfTheDay >= 6) {
     return (
       <div>
         <div className="day">
@@ -106,7 +129,7 @@ function TimebasedAnimation(props) {
           ></TweenOne>
           <TweenOne
             style={{ display: "inline-block" }}
-            animation={{ x: -100, repeat: -1, yoyo: true, duration: 2000 }}
+            animation={{ x: -100, repeat: -1, yoyo: true, duration: 3000 }}
             className="cloud"
           ></TweenOne>
         </div>

@@ -1,5 +1,11 @@
-.App {
+.Box-night {
   text-align: center;
+  background-color: #413f54;
+}
+
+.Box-day {
+  text-align: center;
+  background-color: #3185fc;
 }
 
 .App-logo {
@@ -52,7 +58,7 @@
 
 .moon {
   position: relative;
-  top: 110px;
+  top: 100px;
   bottom: 0;
   left: 10px;
   right: 0;
@@ -65,7 +71,6 @@
 
 /* coeffienct 3/10    https://lauryndbrown.github.io/2017/06/08/creating-clouds-in-css.html */
 .cloud {
-  margin-top: -30px;
   width: 105px;
   height: 36px;
   background: #eceff1;
@@ -93,17 +98,17 @@
 }
 
 .night {
-  background-color: #749dd6;
+  background-color: #413f54;
   border-radius: 20px;
   width: 250px;
   height: 150px;
 }
 
 .day {
-  background-color: #03a9f4;
+  background-color: #3185fc;
   border-radius: 20px;
   width: 250px;
-  height: 150px;
+  height: 125px;
 }
 
 .star-1 {
