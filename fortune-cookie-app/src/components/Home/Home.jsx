@@ -25,21 +25,17 @@ export class Home extends Component {
         minHeight="100vh"
       >
         <Flexbox>
-          <ul className="nav">
-            <li className="nav-item">
-              <a
-                className="nav-link active"
-                style={{
-                  fontSize: "25px",
-                  cursor: "pointer",
-                  color: "#F0F2EF",
-                }}
-                aria-current="page"
-              >
-                Fortune Cookie
-              </a>
-            </li>
-          </ul>
+          <div
+            style={{
+              fontSize: "25px",
+              cursor: "pointer",
+              color: "#F0F2EF",
+              marginLeft: "20px",
+              marginTop: "20px",
+            }}
+          >
+            Fortune Cookie
+          </div>
         </Flexbox>
         <Flexbox
           flexDirection="column"
@@ -56,9 +52,14 @@ export class Home extends Component {
           }
           <h3 style={{ color: "#F0F2EF" }}>{this.state.greetings}</h3>
         </Flexbox>
-        <Flexbox>
-          <h3></h3>
-        </Flexbox>
+        <Flexbox
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="center"
+          height="100%"
+          width="100%"
+          paddingTop="5%"
+        ></Flexbox>
       </Flexbox>
     );
   }
@@ -84,7 +85,7 @@ export class Home extends Component {
         let greetings = "";
         const formatter = new Intl.DateTimeFormat([], options);
         const dateObject = new Date(formatter.format(new Date()));
-        if (dateObject.getHours() < 23) {
+        if (dateObject.getHours() < 12) {
           greetings = "Good Morning!";
         } else if (dateObject.getHours() >= 12 && dateObject.getHours() < 16) {
           greetings = "Good Afternoon!";
