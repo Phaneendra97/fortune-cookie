@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import Flexbox from "flexbox-react";
 import axios from "axios";
-import ReactDOM from "react-dom";
 import TweenOne from "rc-tween-one";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 
 export class Home extends Component {
   state = {
@@ -14,11 +17,13 @@ export class Home extends Component {
     greetings: "",
     hourOfTheDay: 0,
   };
+  firstAnswer = "";
+  questionTracker = 0;
 
   render() {
     return (
       <Flexbox
-        className={this.decideTheme(this.state.greetings)}
+        className={this.decideTheme(this.state.hourOfTheDay)}
         flexDirection="column"
         alignItems="flex-start"
         justifyContent="flex-start"
@@ -59,7 +64,26 @@ export class Home extends Component {
           height="100%"
           width="100%"
           paddingTop="5%"
-        ></Flexbox>
+        >
+          {this.questionTracker === 0 && (
+            <FormControl style={{ width: "40%", color: "#F0F2EF" }}>
+              <InputLabel id="question1">How are you feeling today?</InputLabel>
+              <Select
+                labelId="question1"
+                id="question1-select"
+                value={this.firstAnswer}
+                label="How are you feeling today?"
+                onChange={this.answerRecorder}
+              >
+                <MenuItem value={"Good"}>Good</MenuItem>
+                <MenuItem value={"Excited"}>Excited</MenuItem>
+                <MenuItem value={"Tensed"}>Tensed</MenuItem>
+                <MenuItem value={"Sad"}>Sad</MenuItem>
+              </Select>
+            </FormControl>
+          )}
+          <p>{this.firstAnswer}</p>
+        </Flexbox>
       </Flexbox>
     );
   }
@@ -102,23 +126,27 @@ export class Home extends Component {
           greetings: greetings,
           hourOfTheDay: dateObject.getHours(),
         });
-        console.log("@here", userDetails, greetings, dateObject.getHours());
       })
       .catch((error) => {
         console.log(error);
       });
   };
-  decideTheme = (greetings) => {
-    if (greetings === "Good Morning!" || greetings === "Good Afternoon!") {
+  decideTheme = (hourOfTheDay) => {
+    if (hourOfTheDay >= 6 && hourOfTheDay <= 18) {
       return "Box-day";
     } else {
       return "Box-night";
     }
   };
+
+  answerRecorder = (event) => {
+    this.questionTracker = this.questionTracker + 1;
+    this.setState(this.firstAnswer, event.target.value);
+    console.log("@here", event, this.firstAnswer, this.questionTracker);
+  };
 }
 
 function TimebasedAnimation(props) {
-  console.log(props);
   if (props.timeHint == "Good Morning!" && props.hourOfTheDay >= 6) {
     return (
       <div>
