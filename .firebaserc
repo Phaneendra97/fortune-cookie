@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "fortune-cookie-26c0f"
+  },
+  "targets": {
+    "fortune-cookie-26c0f": {
+      "hosting": {
+        "fortunecookie42": [
+          "fortunecookie42"
+        ]
+      }
+    }
   }
 }
