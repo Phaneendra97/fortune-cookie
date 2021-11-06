@@ -16,8 +16,8 @@ export class Home extends Component {
     },
     greetings: "",
     hourOfTheDay: 0,
+    firstAnswer: "",
   };
-  firstAnswer = "";
   questionTracker = 0;
 
   render() {
@@ -71,7 +71,7 @@ export class Home extends Component {
               <Select
                 labelId="question1"
                 id="question1-select"
-                value={this.firstAnswer}
+                value={this.state.firstAnswer}
                 label="How are you feeling today?"
                 onChange={this.answerRecorder}
               >
@@ -82,7 +82,7 @@ export class Home extends Component {
               </Select>
             </FormControl>
           )}
-          <p>{this.firstAnswer}</p>
+          <p>{this.state.firstAnswer}</p>
         </Flexbox>
       </Flexbox>
     );
@@ -132,7 +132,7 @@ export class Home extends Component {
       });
   };
   decideTheme = (hourOfTheDay) => {
-    if (hourOfTheDay >= 6 && hourOfTheDay <= 18) {
+    if (hourOfTheDay >= 6 && hourOfTheDay < 18) {
       return "Box-day";
     } else {
       return "Box-night";
@@ -141,13 +141,14 @@ export class Home extends Component {
 
   answerRecorder = (event) => {
     this.questionTracker = this.questionTracker + 1;
-    this.setState(this.firstAnswer, event.target.value);
-    console.log("@here", event, this.firstAnswer, this.questionTracker);
+    const firstAnswer = event.target.value;
+    this.setState({ firstAnswer: firstAnswer });
+    console.log("@here", this.state, event.target.value);
   };
 }
 
 function TimebasedAnimation(props) {
-  if (props.timeHint == "Good Morning!" && props.hourOfTheDay >= 6) {
+  if (props.hourOfTheDay >= 6 && props.hourOfTheDay < 18) {
     return (
       <div>
         <div className="day">
