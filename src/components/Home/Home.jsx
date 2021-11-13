@@ -6,14 +6,18 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import firebase from "./../../firebase";
+import firebaseConfig from "./../../firebaseConfig";
+import { initializeApp } from "firebase/app";
+import { getDatabase, ref, child, get } from "firebase/database";
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
 
 export class Home extends Component {
   state = {
     userDetails: {
       country: "",
       timezone: "",
-      localTime: "",
+      localTime: new Date(),
     },
     greetings: "",
     hourOfTheDay: 0,
@@ -144,10 +148,35 @@ export class Home extends Component {
     this.questionTracker = this.questionTracker + 1;
     const firstAnswer = event.target.value;
     this.setState({ firstAnswer: firstAnswer });
-    const todoRef = firebase
-      .database()
-      .ref("fortune-cookie-26c0f-default-rtdb");
-    console.log("@here", todoRef);
+    const dbRef = ref(getDatabase());
+    // const date = new Date(this.state.userDetails.localTime);
+    console.log(this.state.userDetails.localTime.getDay());
+    const day = this.getDay(this.state.userDetails.localTime.getDay());
+    get(child(dbRef, `/${firstAnswer.toLowerCase()}/${day}`))
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          console.log(snapshot.val());
+        } else {
+          console.log("No data available");
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  getDay = (dayInNumber) => {
+    const weekday = new Array(7);
+    weekday[0] = "sunday";
+    weekday[1] = "monday";
+    weekday[2] = "tuesday";
+    weekday[3] = "wednesday";
+    weekday[4] = "thursday";
+    weekday[5] = "friday";
+    weekday[6] = "saturday";
+
+    let day = weekday[dayInNumber];
+    return day;
   };
 }
 
