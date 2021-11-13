@@ -4,21 +4,6 @@ import "./index.css";
 import { App } from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyAUcYE1-k0RQ-xtkEnWKHzgGpOOawwiwmg",
-  authDomain: "fortune-cookie-26c0f.firebaseapp.com",
-  projectId: "fortune-cookie-26c0f",
-  storageBucket: "fortune-cookie-26c0f.appspot.com",
-  messagingSenderId: "962309485012",
-  appId: "1:962309485012:web:f72aa5a5d7c7b4392fa641",
-  measurementId: "G-WME8GXR5XN",
-};
-
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 
 const theme = createTheme({
   palette: {

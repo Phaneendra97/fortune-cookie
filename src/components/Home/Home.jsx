@@ -6,6 +6,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import firebase from "./../../firebase";
 
 export class Home extends Component {
   state = {
@@ -143,7 +144,10 @@ export class Home extends Component {
     this.questionTracker = this.questionTracker + 1;
     const firstAnswer = event.target.value;
     this.setState({ firstAnswer: firstAnswer });
-    console.log("@here", this.state, event.target.value);
+    const todoRef = firebase
+      .database()
+      .ref("fortune-cookie-26c0f-default-rtdb");
+    console.log("@here", todoRef);
   };
 }
 
