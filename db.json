@@ -1,96 +1,95 @@
 {
-   
-      "good": {
-        "monday": [
-          "Nothing can take away your good feeling this week. Have a great week"
-        ],
-        "tuesday": [
-          "Nothing can take away your good feeling this week. Have a great week"
-        ],
-        "wednesday": [
-          "Nothing can take away your good feeling this week. Have a great week"
-        ],
-        "thursday": [
-          "Nothing can take away your good feeling this week. Have a great week"
-        ],
-        "friday": [
-          "Nothing can take away your good feeling this week. Have a great week"
-        ],
-        "saturday": [
-          "Nothing can take away your good feeling this week. Have a great week"
-        ],
-        "sunday": [
-          "Nothing can take away your good feeling this week. Have a great week"
-        ]
-      },
-      "excited": {
-        "monday": [
-          "Nothing can take away your good feeling this week. Have a great week"
-        ],
-        "tuesday": [
-          "Nothing can take away your good feeling this week. Have a great week"
-        ],
-        "wednesday": [
-          "Nothing can take away your good feeling this week. Have a great week"
-        ],
-        "thursday": [
-          "Nothing can take away your good feeling this week. Have a great week"
-        ],
-        "friday": [
-          "Nothing can take away your good feeling this week. Have a great week"
-        ],
-        "saturday": [
-          "Nothing can take away your good feeling this week. Have a great week"
-        ],
-        "sunday": [
-          "Nothing can take away your good feeling this week. Have a great week"
-        ]
-      },
-      "tensed": {
-        "monday": [
-          "Nothing can take away your good feeling this week. Have a great week"
-        ],
-        "tuesday": [
-          "Nothing can take away your good feeling this week. Have a great week"
-        ],
-        "wednesday": [
-          "Nothing can take away your good feeling this week. Have a great week"
-        ],
-        "thursday": [
-          "Nothing can take away your good feeling this week. Have a great week"
-        ],
-        "friday": [
-          "Nothing can take away your good feeling this week. Have a great week"
-        ],
-        "saturday": [
-          "Nothing can take away your good feeling this week. Have a great week"
-        ],
-        "sunday": [
-          "Nothing can take away your good feeling this week. Have a great week"
-        ]
-      },
-      "sad": {
-        "monday": [
-          "Nothing can take away your good feeling this week. Have a great week"
-        ],
-        "tuesday": [
-          "Nothing can take away your good feeling this week. Have a great week"
-        ],
-        "wednesday": [
-          "Nothing can take away your good feeling this week. Have a great week"
-        ],
-        "thursday": [
-          "Nothing can take away your good feeling this week. Have a great week"
-        ],
-        "friday": [
-          "Nothing can take away your good feeling this week. Have a great week"
-        ],
-        "saturday": [
-          "Nothing can take away your good feeling this week. Have a great week"
-        ],
-        "sunday": [
-          "Nothing can take away your good feeling this week. Have a great week"
-        ]
-      }
-    
+  "good": {
+    "monday": [
+      "Nothing can take away your good feeling this week. Have a great week",
+      "Feeling good on a monday is rare. Don't let anything take that away from you"
+    ],
+    "tuesday": [
+      "Of all our human resources, the most precious is the desire to improve"
+    ],
+    "wednesday": [
+      "People learn little from success, but much from failure."
+    ],
+    "thursday": [
+      "Keep up the goodness, things will only get better"
+    ],
+    "friday": [
+      "Nothing can take away your good feeling this week. Have a great week"
+    ],
+    "saturday": [
+      "Nothing can take away your good feeling this week. Have a great week"
+    ],
+    "sunday": [
+      "Nothing can take away your good feeling this week. Have a great week"
+    ]
+  },
+  "excited": {
+    "monday": [
+      "Big journeys begin with a single step"
+    ],
+    "tuesday": [
+      "The things you do for yourself are gone when you are gone, but the things you do for others remain as your legacy."
+    ],
+    "wednesday": [
+      "Nothing can take away your good feeling this week. Have a great week"
+    ],
+    "thursday": [
+      "Nothing can take away your good feeling this week. Have a great week"
+    ],
+    "friday": [
+      "Nothing can take away your good feeling this week. Have a great week"
+    ],
+    "saturday": [
+      "Nothing can take away your good feeling this week. Have a great week"
+    ],
+    "sunday": [
+      "Nothing can take away your good feeling this week. Have a great week"
+    ]
+  },
+  "tensed": {
+    "monday": [
+      "Patience is your alley at the moment. Don’t worry!"
+    ],
+    "tuesday": [
+      "Fear is interest paid on a debt you may not owe."
+    ],
+    "wednesday": [
+      "He who throws mud loses ground."
+    ],
+    "thursday": [
+      "Be not afraid of growing slowly, be afraid only of standing still."
+    ],
+    "friday": [
+      "Nothing can take away your good feeling this week. Have a great week"
+    ],
+    "saturday": [
+      "Nothing can take away your good feeling this week. Have a great week"
+    ],
+    "sunday": [
+      "Nothing can take away your good feeling this week. Have a great week"
+    ]
+  },
+  "sad": {
+    "monday": [
+      "You don’t need strength to let go of something. What you really need is understanding."
+    ],
+    "tuesday": [
+      "The usefulness of a cup is in its emptiness."
+    ],
+    "wednesday": [
+      "The best way to get rid of an enemy is to make a friend."
+    ],
+    "thursday": [
+      "The best way to find out if you can trust somebody is to trust them."
+    ],
+    "friday": [
+      "We live in an age when unnecessary things are our only necessities."
+    ],
+    "saturday": [
+      "Nothing can take away your good feeling this week. Have a great week"
+    ],
+    "sunday": [
+      "Nothing can take away your good feeling this week. Have a great week"
+    ]
   }
+}
