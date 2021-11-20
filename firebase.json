@@ -3,7 +3,6 @@
     "rules": "database.rules.json"
   },
   "hosting": {
-    "target": "fortunecookie42",
     "public": "public",
     "ignore": [
       "firebase.json",
