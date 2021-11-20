@@ -1,3 +1,4 @@
+import { initializeApp } from "firebase/app";
 const firebaseConfig = {
   apiKey: "AIzaSyAUcYE1-k0RQ-xtkEnWKHzgGpOOawwiwmg",
   authDomain: "fortune-cookie-26c0f.firebaseapp.com",
@@ -9,5 +10,7 @@ const firebaseConfig = {
   appId: "1:962309485012:web:f72aa5a5d7c7b4392fa641",
   measurementId: "G-WME8GXR5XN",
 };
+
+const app = initializeApp(firebaseConfig);
 
 export default firebaseConfig;

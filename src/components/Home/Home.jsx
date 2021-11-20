@@ -3,12 +3,9 @@ import Flexbox from "flexbox-react";
 import axios from "axios";
 import TweenOne from "rc-tween-one";
 import Divider from "@mui/material/Divider";
-import firebaseConfig from "./../../firebaseConfig";
-import { initializeApp } from "firebase/app";
 import { getDatabase, ref, child, get } from "firebase/database";
 import Button from "@mui/material/Button";
 import CircularProgress from "@mui/material/CircularProgress";
-const app = initializeApp(firebaseConfig);
 
 export class Home extends Component {
   state = {
