@@ -2,15 +2,13 @@ import React, { Component } from "react";
 import Flexbox from "flexbox-react";
 import axios from "axios";
 import TweenOne from "rc-tween-one";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
+import Divider from "@mui/material/Divider";
 import firebaseConfig from "./../../firebaseConfig";
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, child, get } from "firebase/database";
+import Button from "@mui/material/Button";
+import CircularProgress from "@mui/material/CircularProgress";
 const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
 
 export class Home extends Component {
   state = {
@@ -21,9 +19,9 @@ export class Home extends Component {
     },
     greetings: "",
     hourOfTheDay: 0,
-    firstAnswer: "",
+    fortuneText: "",
+    buttonClicked: false,
   };
-  questionTracker = 0;
 
   render() {
     return (
@@ -62,32 +60,41 @@ export class Home extends Component {
           }
           <h3 style={{ color: "#F0F2EF" }}>{this.state.greetings}</h3>
         </Flexbox>
+        <Divider />
         <Flexbox
+          marginTop="4%"
           flexDirection="column"
           alignItems="center"
           justifyContent="center"
-          height="100%"
           width="100%"
-          paddingTop="5%"
         >
-          {this.questionTracker === 0 && (
-            <FormControl style={{ width: "40%", color: "#F0F2EF" }}>
-              <InputLabel id="question1">How are you feeling today?</InputLabel>
-              <Select
-                labelId="question1"
-                id="question1-select"
-                value={this.state.firstAnswer}
-                label="How are you feeling today?"
-                onChange={this.answerRecorder}
-              >
-                <MenuItem value={"Good"}>Good</MenuItem>
-                <MenuItem value={"Excited"}>Excited</MenuItem>
-                <MenuItem value={"Tensed"}>Tensed</MenuItem>
-                <MenuItem value={"Sad"}>Sad</MenuItem>
-              </Select>
-            </FormControl>
+          {!this.state.buttonClicked ? (
+            <Button
+              color="secondary"
+              style={{ color: "white" }}
+              onClick={() => {
+                this.fetchFortune();
+              }}
+              variant="outlined"
+            >
+              Reveal Fortune
+            </Button>
+          ) : (
+            <CircularProgress color="secondary" />
           )}
-          <p>{this.state.firstAnswer}</p>
+
+          <div
+            style={{
+              fontSize: "25px",
+              cursor: "pointer",
+              color: "#F0F2EF",
+              marginLeft: "20px",
+              marginTop: "20px",
+              paddingRight: "20px",
+            }}
+          >
+            {this.state.fortuneText}
+          </div>
         </Flexbox>
       </Flexbox>
     );
@@ -144,25 +151,27 @@ export class Home extends Component {
     }
   };
 
-  answerRecorder = (event) => {
-    this.questionTracker = this.questionTracker + 1;
-    const firstAnswer = event.target.value;
-    this.setState({ firstAnswer: firstAnswer });
+  fetchFortune = () => {
+    this.setState({ buttonClicked: true });
+    this.setState({ fortuneText: "" });
     const dbRef = ref(getDatabase());
     // const date = new Date(this.state.userDetails.localTime);
-    console.log(this.state.userDetails.localTime.getDay());
     const day = this.getDay(this.state.userDetails.localTime.getDay());
-    get(child(dbRef, `/${firstAnswer.toLowerCase()}/${day}`))
-      .then((snapshot) => {
-        if (snapshot.exists()) {
-          console.log(snapshot.val());
-        } else {
-          console.log("No data available");
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    setTimeout(() => {
+      get(child(dbRef, `/${day}`))
+        .then((snapshot) => {
+          if (snapshot.exists()) {
+            const random = Math.floor(Math.random() * snapshot.val().length);
+            this.setState({ fortuneText: snapshot.val()[random] });
+          } else {
+            console.log("No data available");
+          }
+          this.setState({ buttonClicked: false });
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }, 500);
   };
 
   getDay = (dayInNumber) => {
