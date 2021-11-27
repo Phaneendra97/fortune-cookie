@@ -140,6 +140,7 @@ export class Home extends Component {
         console.log(error);
       });
   };
+
   decideTheme = (hourOfTheDay) => {
     if (hourOfTheDay >= 6 && hourOfTheDay < 18) {
       return "Box-day";
