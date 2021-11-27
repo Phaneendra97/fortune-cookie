@@ -169,7 +169,7 @@ export class Home extends Component {
         .catch((error) => {
           console.error(error);
         });
-    }, 500);
+    }, 550);
   };
 
   getDay = (dayInNumber) => {
