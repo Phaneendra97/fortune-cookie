@@ -32,7 +32,7 @@ export class Home extends Component {
         <Flexbox>
           <div
             style={{
-              fontSize: "25px",
+              fontSize: "18px",
               cursor: "pointer",
               color: "#F0F2EF",
               marginLeft: "20px",
